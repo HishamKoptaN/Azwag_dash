@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "727111486239",
+    "project_id": "gwaz-b098e",
+    "storage_bucket": "gwaz-b098e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727111486239:android:d41150b0e18ddab445fe2a",
+        "android_client_info": {
+          "package_name": "com.example.azwag"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmuNZU1g8-fhr9x-syh-m2v7HLbRSr8nI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

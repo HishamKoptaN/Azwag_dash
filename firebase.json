@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "zwag-dashboard-com",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
