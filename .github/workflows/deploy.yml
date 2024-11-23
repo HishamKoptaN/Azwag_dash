@@ -8,28 +8,30 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-     # 1. Checkout the latest code
+     # ! 1
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
-
-     # 2. Set up Flutter with Dart >= 3.5.0
+     # ! 2
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.5.0' # Use Flutter version with Dart >= 3.5.0
+        flutter-version: '3.0.0'
         channel: stable
         architecture: x64
-
-     # 3. Install dependencies
-    - name: flutter pub get
+        cache: false
+        pub-cache-path: default
+        dry-run: false
+     # ! 3
+    - name: Upgrade Flutter
+      run: flutter upgrade
+     # !
+    - name: Install dependencies
       run: flutter pub get
-
-     # 4. Build the web application
+     # !
     - name: Build web
       run: flutter build web  
-
-     # 5. Deploy the web build via FTP
-    - name: 📂 Deploy build web
+     # !
+    - name: 📂 deploy build web
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ftp.aquan.website
