@@ -34,7 +34,7 @@ jobs:
     - name: 📂 deploy build web
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.aquan.website
+        server: ftp://82.197.83.233
         username:  u943485201
         password:  Coder1632001@
         protocol: "ftp" 
