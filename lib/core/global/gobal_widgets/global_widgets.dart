@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomText extends StatelessWidget {
   String text;
   double fontSize;
-  Color color;
+  Color? color;
   int? maxLines;
   FontWeight? fontWeight;
   TextAlign? textAlign;
@@ -12,9 +12,9 @@ class CustomText extends StatelessWidget {
     super.key,
     required this.text,
     required this.fontSize,
-    required this.color,
-    required this.maxLines,
-    required this.fontWeight,
+    this.color,
+    this.maxLines,
+    this.fontWeight,
     this.textAlign,
   });
 
@@ -95,11 +95,9 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height / 10,
-      width: width,
+      height: 50.h,
+      width: 200.w,
       child: TextFormField(
         controller: controller,
         keyboardType: isNumeric ? TextInputType.number : TextInputType.text,

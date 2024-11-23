@@ -24,7 +24,6 @@ Future<void> main() async {
   }
   await Injection.inject();
   Bloc.observer = AppBlocObserver();
-
   runApp(
     const MyApp(),
   );

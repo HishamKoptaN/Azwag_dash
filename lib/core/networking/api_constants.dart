@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://mubin.aquan.website/api/dash/";
+  static const String apiBaseUrl = "https://azwag-api.aquan.website/api/dash/";
 
   static const String check = "check";
   static const String login = "login";

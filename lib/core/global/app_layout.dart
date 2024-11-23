@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'gobal_widgets/global_widgets.dart';
 
 class AppLayout extends StatefulWidget {
@@ -11,12 +10,16 @@ class AppLayout extends StatefulWidget {
     required this.showAppBar,
     this.backArow = true,
     this.onPressed,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
   });
   final String route;
   final Widget body;
   final bool showAppBar;
   final bool backArow;
   void Function()? onPressed;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
 
   @override
   State<AppLayout> createState() => _AppLayoutState();
@@ -29,6 +32,8 @@ class _AppLayoutState extends State<AppLayout> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: widget.floatingActionButton,
+        floatingActionButtonLocation: widget.floatingActionButtonLocation,
         backgroundColor: Colors.white,
         appBar: widget.showAppBar
             ? AppBar(

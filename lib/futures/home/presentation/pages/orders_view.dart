@@ -1,44 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/global/app_layout.dart';
 import '../../../../core/global/circular_progress.dart';
 import '../../../similar_view.dart';
-import '../../data/models/get_orders_response_model.dart';
+import '../../data/models/get_orders_response_model/get_orders_response_model.dart';
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
 import '../bloc/home_state.dart';
-import '../../../main_provider.dart';
 import '../../../../core/global/gobal_widgets/global_widgets.dart';
 import '../widgets/requested_widget.dart';
 import '../widgets/requester_widget.dart';
 
 class OrdersView extends StatefulWidget {
   const OrdersView({super.key});
-
   @override
   State<OrdersView> createState() => _OrdersViewState();
 }
 
 class _OrdersViewState extends State<OrdersView> {
-  final TextEditingController _searchController = TextEditingController();
-  MainProvder mainProvder = MainProvder();
-  int _searchQuery = 1;
-  List<OrderElement>? filteredOrders;
+  final TextEditingController _searchTextController = TextEditingController();
+  final ScrollController _sc = ScrollController();
+  String filterType = 'id';
 
+  List<Order> allOrders = [];
+  List<Order> filteredOrders = [];
+  bool isSearching = false;
   @override
   void initState() {
     super.initState();
-    _searchController.addListener(
-      () {
-        setState(
-          () {
-            _searchQuery = int.parse(_searchController.text);
-          },
-        );
-      },
-    );
+    setState(() {});
   }
 
   @override
@@ -54,48 +47,171 @@ class _OrdersViewState extends State<OrdersView> {
             const HomeEvent.getOrders(),
           ),
         child: BlocConsumer<HomeBloc, HomeState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            state.when(
+              initial: () {},
+              ordersLoaded: (getOrdersResponseModel) {
+                allOrders = getOrdersResponseModel.orders;
+              },
+              error: (error) {},
+            );
+          },
           builder: (context, state) {
             return state.when(
               ordersLoaded: (getOrdersResponseModel) {
                 return Center(
                   child: Column(
                     children: [
-                      // Container(
-                      //   height: 40.h,
-                      //   width: 700.w,
-                      //   decoration: const BoxDecoration(
-                      //     color: Colors.white,
-                      //   ),
-                      //   child: CustomTextField(
-                      //     controller: _searchController,
-                      //     label: 'بحث',
-                      //     enabled: true,
-                      //     onChanged: (value) {
-                      //       filteredOrders =
-                      //           getOrdersResponseModel.orders!.where(
-                      //         (order) {
-                      //           return order.order!.id!.toString() ==
-                      //               _searchQuery;
-                      //         },
-                      //       ).toList();
-                      //     },
-                      //   ),
-                      // ),
+                      Row(
+                        children: [
+                          Gap(
+                            25.w,
+                          ),
+                          DropdownButton<String>(
+                            value: filterType,
+                            items: [
+                              DropdownMenuItem(
+                                value: 'id',
+                                child: CustomText(
+                                  text: 'معرف الملف ',
+                                  fontSize: 15,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'first_name',
+                                child: CustomText(
+                                  text: 'ألاسم',
+                                  fontSize: 15,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'age',
+                                child: CustomText(
+                                  text: 'العمر',
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                            onChanged: (value) {
+                              setState(() {
+                                filterType = value!;
+                              });
+                            },
+                          ),
+                          Container(
+                            height: 40.h,
+                            width: 700.w,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                            ),
+                            child: CustomTextField(
+                              controller: _searchTextController,
+                              enabled: true,
+                              label: 'بحث',
+                              onChanged: (searchOrder) {
+                                setState(
+                                  () {
+                                    filteredOrders = allOrders.where((order) {
+                                      final searchText = _searchTextController
+                                          .text
+                                          .toLowerCase()
+                                          .trim();
+                                      switch (filterType) {
+                                        case 'id':
+                                          return order.id
+                                              .toString()
+                                              .contains(searchText);
+                                        case 'first_name':
+                                          return order.requesterData?.firstName
+                                                  .toLowerCase()
+                                                  .contains(searchText) ??
+                                              false;
+                                        case 'age':
+                                          return order.requesterData?.age
+                                                  .toString()
+                                                  .contains(searchText) ??
+                                              false;
+                                        default:
+                                          return false;
+                                      }
+                                    }).toList();
+                                  },
+                                );
+                                WidgetsBinding.instance.addPostFrameCallback(
+                                  (_) => _sc.jumpTo(
+                                    _sc.position.minScrollExtent,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                       SizedBox(
-                        height: 625.h,
+                        height: 600.h,
                         width: width,
                         child: ListView.builder(
-                          itemCount:
-                              filteredOrders == null || filteredOrders!.isEmpty
-                                  ? getOrdersResponseModel.orders!.length
-                                  : filteredOrders!.length,
+                          controller: _sc,
+                          reverse: false,
+                          itemCount: _searchTextController.text.isEmpty
+                              ? allOrders.length
+                              : filteredOrders.length,
                           itemBuilder: (context, index) {
-                            OrderElement order =
-                                getOrdersResponseModel.orders![index];
-                            var requesterData = order.order!.requesterData!;
-                            var requestedData = order.order!.requestedData!;
-                            var similar = order.similar!.requesterData!;
+                            Order order = _searchTextController.text.isEmpty
+                                ? allOrders[index]
+                                : filteredOrders[index];
+                            var requesterData = order.requesterData;
+                            var requestedData = order.requestedData;
+                            Order? similar;
+                            try {
+                              similar =
+                                  getOrdersResponseModel.orders.firstWhere(
+                                (index) =>
+                                    index.requesterData!.gander !=
+                                        order.requesterData!.gander
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.age >
+                                        order.requestedData!.minAge
+                                    //
+                                    &&
+                                    index.requesterData!.age <
+                                        order.requestedData!.maxAge
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.weight >
+                                        order.requestedData!.weight - 10
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.weight <
+                                        order.requestedData!.weight + 10
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.maritalStatus ==
+                                        order.requestedData!.maritalStatus
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.residenceArea ==
+                                        order.requestedData!.residenceArea
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.educationalLevel ==
+                                        order.requestedData!.educationalLevel
+                                    //
+                                    &&
+                                    //
+                                    index.requesterData!.skinColor ==
+                                        order.requestedData!.skinColor,
+                              );
+                            } catch (e) {
+                              similar = null;
+                            }
                             return Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Container(
@@ -113,7 +229,7 @@ class _OrdersViewState extends State<OrdersView> {
                                           color: Colors.amber,
                                         ),
                                         child: CustomText(
-                                          text: "رقم الملف /",
+                                          text: "رقم الملف /${order.id}",
                                           fontSize: 15.sp,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
@@ -143,7 +259,7 @@ class _OrdersViewState extends State<OrdersView> {
                                               RequesterWidget(
                                                 height: 650.h,
                                                 width: 750.h,
-                                                requesterData: requesterData,
+                                                requesterData: requesterData!,
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.all(5.sp),
@@ -159,7 +275,7 @@ class _OrdersViewState extends State<OrdersView> {
                                               requestedWidget(
                                                 height: 210.h,
                                                 width: 750.w,
-                                                requestedData: requestedData,
+                                                requestedData: requestedData!,
                                               ),
                                             ],
                                           ),
@@ -184,7 +300,7 @@ class _OrdersViewState extends State<OrdersView> {
                                                 ),
                                               ),
                                               SimilarWidget(
-                                                height: 550.h,
+                                                height: 650.h,
                                                 width: 500.w,
                                                 similar: similar,
                                               ),

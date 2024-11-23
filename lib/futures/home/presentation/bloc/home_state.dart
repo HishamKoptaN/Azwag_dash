@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../core/errors/api_error_model.dart';
-import '../../data/models/get_orders_response_model.dart';
+import '../../data/models/get_orders_response_model/get_orders_response_model.dart';
 part 'home_state.freezed.dart';
 
 @freezed

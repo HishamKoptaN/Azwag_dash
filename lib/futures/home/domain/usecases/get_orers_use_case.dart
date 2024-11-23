@@ -1,5 +1,5 @@
 import '../../../../core/networking/api_result.dart';
-import '../../data/models/get_orders_response_model.dart';
+import '../../data/models/get_orders_response_model/get_orders_response_model.dart';
 import '../repo/home_repo.dart';
 
 class GetOrdersUseCase {

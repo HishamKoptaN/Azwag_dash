@@ -1,9 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import '../../../../core/global/gobal_widgets/global_widgets.dart';
-import '../../data/models/get_orders_response_model.dart';
+import '../../data/models/get_orders_response_model/sub_models/requester_data.dart';
 
 class RequesterWidget extends StatelessWidget {
   RequesterWidget({
@@ -23,7 +22,7 @@ class RequesterWidget extends StatelessWidget {
       {'العنوان': requesterData.title},
       {'رقم الجوال': requesterData.mobileNumber},
       {'الجنس': requesterData.gander},
-      {'الجنسية': requesterData.nationalit},
+      {'الجنسية': requesterData.nationality},
       {'الوزن': requesterData.weight},
       {'العمر': requesterData.age},
       {'لون البشرة': requesterData.skinColor},
@@ -37,7 +36,6 @@ class RequesterWidget extends StatelessWidget {
       {'منطقة الإقامة': requesterData.residenceArea},
       {'منطقة الأصل': requesterData.originRegion},
       {'نوع الزواج': requesterData.mariageType},
-      {'ملاحظات': requesterData.notes},
       {'معلومات إضافية': requesterData.selfInformation},
       {'البريد الإلكتروني': requesterData.email},
     ];

@@ -2,7 +2,7 @@ import '../../../../core/errors/api_error_handler.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../domain/repo/home_repo.dart';
 import '../data_sources/home_api.dart';
-import '../models/get_orders_response_model.dart';
+import '../models/get_orders_response_model/get_orders_response_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final HomeApi tempApi;

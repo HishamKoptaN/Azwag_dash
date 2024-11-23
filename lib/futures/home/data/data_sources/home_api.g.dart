@@ -14,7 +14,7 @@ class _HomeApi implements HomeApi {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://mubin.aquan.website/api/dash/';
+    baseUrl ??= 'https://azwag-api.aquan.website/api/dash/';
   }
 
   final Dio _dio;

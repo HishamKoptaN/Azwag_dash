@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/global/gobal_widgets/global_widgets.dart';
-import '../../data/models/get_orders_response_model.dart';
+import '../../data/models/get_orders_response_model/sub_models/requested_data.dart';
 
 class requestedWidget extends StatelessWidget {
   requestedWidget({
@@ -18,13 +17,16 @@ class requestedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> fields = [
+      {'العمر من': requestedData.minAge},
+      {'العمر الي': requestedData.maxAge},
+      {'الحالة الاجتماعية': requestedData.maritalStatus},
+      {'منطقة الإقامة': requestedData.residenceArea},
+      {'المستوى التعليمي': requestedData.educationalLevel},
       {'الوزن': requestedData.weight},
       {'لون البشرة': requestedData.skinColor},
-      {'الحالة الاجتماعية': requestedData.maritalStatus},
-      {'المستوى التعليمي': requestedData.educationalLevel},
-      {'منطقة الإقامة': requestedData.residenceArea},
+      {'ملاحظات': requestedData.notes},
     ];
-    return Container(
+    return SizedBox(
       height: height,
       width: width,
       child: ListView.builder(
