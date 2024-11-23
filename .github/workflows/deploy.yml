@@ -34,9 +34,9 @@ jobs:
     - name: 📂 deploy build web
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp://82.197.83.233
-        username:  u943485201
-        password:  Coder1632001@
+        server: 82.197.83.233
+        username: u943485201
+        password: Coder1632001@
         protocol: "ftp" 
         port: 21  
         server-dir: /domains/aquan.website/public_html/test/azwag_dash/
