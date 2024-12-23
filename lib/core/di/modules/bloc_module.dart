@@ -1,4 +1,5 @@
-import '../../../futures/home/presentation/bloc/home_bloc.dart';
+import '../../../futures/home/present/bloc/home_bloc.dart';
+import '../../../futures/search/present/bloc/search_bloc.dart';
 import '../dependency_injection.dart';
 
 class BlocModule extends DIModule {
@@ -7,7 +8,13 @@ class BlocModule extends DIModule {
     getIt
       ..registerLazySingleton<HomeBloc>(
         () => HomeBloc(
-          getIt(),
+          getOrdersUseCase: getIt(),
+          getSettingsUseCase: getIt(),
+        ),
+      )
+      ..registerLazySingleton<SearchBloc>(
+        () => SearchBloc(
+          searchUseCase: getIt(),
         ),
       );
   }

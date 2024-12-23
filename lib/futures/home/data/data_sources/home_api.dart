@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import '../../../../core/models/settings.dart';
 import '../../../../core/networking/api_constants.dart';
-import '../models/get_orders_response_model/get_orders_response_model.dart';
+import '../../../../core/models/order.dart';
 part 'home_api.g.dart';
 
 @RestApi(
@@ -15,5 +16,9 @@ abstract class HomeApi {
   @GET(
     ApiConstants.orders,
   )
-  Future<GetOrdersResponseModel> getOrers();
+  Future<List<Order>> getOrers();
+  @GET(
+    ApiConstants.settings,
+  )
+  Future<Settings> getSettings();
 }

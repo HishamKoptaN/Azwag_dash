@@ -1,6 +1,8 @@
+import '../../../../core/models/settings.dart';
 import '../../../../core/networking/api_result.dart';
-import '../../data/models/get_orders_response_model/get_orders_response_model.dart';
+import '../../../../core/models/order.dart';
 
 abstract class HomeRepo {
-  Future<ApiResult<GetOrdersResponseModel>> getOrders();
+  Future<ApiResult<List<Order>>> getOrders();
+  Future<ApiResult<Settings>> getSettings();
 }

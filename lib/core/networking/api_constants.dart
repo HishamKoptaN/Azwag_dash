@@ -1,9 +1,11 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://azwag-api.aquan.website/api/dash/";
+  static const String apiBaseUrl = "https://azwag-api.aquan.website/dash/";
 
   static const String check = "check";
   static const String login = "login";
   static const String orders = "orders";
+  static const String search = "search";
+  static const String settings = "settings";
 }
 
 class ApiErrors {
