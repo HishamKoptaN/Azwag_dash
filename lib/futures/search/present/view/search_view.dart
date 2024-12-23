@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/global/app_layout.dart';
 import '../../../../core/global/custom_text.dart';
@@ -35,16 +36,13 @@ class _SearchViewState extends State<SearchView> {
           searchUseCase: getIt(),
         ),
         child: SingleChildScrollView(
-          // Wrapping the entire layout in SingleChildScrollView
           child: Column(
             children: [
-              const SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: SearchFieldsWidgets(),
+              SizedBox(
+                height: 300.h,
+                child: const SearchFieldsWidgets(),
               ),
-              BlocConsumer<SearchBloc, SearchState>(
-                listener: (context, state) {},
+              BlocBuilder<SearchBloc, SearchState>(
                 builder: (context, state) {
                   return state.maybeWhen(
                     loaded: (orders) {

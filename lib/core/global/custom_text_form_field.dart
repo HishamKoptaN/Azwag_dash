@@ -24,7 +24,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 350.w,
+      width: 400.w,
       child: TextFormField(
         controller: controller,
         keyboardType: isNumeric ? TextInputType.number : TextInputType.text,

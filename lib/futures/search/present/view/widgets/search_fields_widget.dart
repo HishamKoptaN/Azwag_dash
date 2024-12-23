@@ -57,7 +57,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Gap(
-                    25.h,
+                    10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,7 +76,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                         itemToString: (item) => item,
                       ),
                       Container(
-                        width: 350.w,
+                        width: 400.w,
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           border: Border.all(
@@ -136,7 +136,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                     ],
                   ),
                   Gap(
-                    25.h,
+                    10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -177,7 +177,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                     ],
                   ),
                   Gap(
-                    25.h,
+                    10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -228,7 +228,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                     ],
                   ),
                   Gap(
-                    25.h,
+                    10.h,
                   ),
                   CustomButtonTextWidget(
                     width: 450.w,

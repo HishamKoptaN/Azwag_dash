@@ -25,7 +25,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 350.w,
+      width: 400.w,
       child: DropdownButtonFormField<T>(
         decoration: InputDecoration(
           labelText: label,

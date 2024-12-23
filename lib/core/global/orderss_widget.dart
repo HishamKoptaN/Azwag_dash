@@ -12,10 +12,9 @@ class OrdersWidget extends StatelessWidget {
     required this.orders,
     required this.width,
     required ScrollController sc,
-  }) : _sc = sc;
+  });
   final List<Order> orders;
   final double width;
-  final ScrollController _sc;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,6 @@ class OrdersWidget extends StatelessWidget {
       height: 600.h,
       width: width,
       child: ListView.builder(
-        controller: _sc,
         reverse: false,
         itemCount: orders.length,
         itemBuilder: (context, index) {

@@ -45,8 +45,7 @@ class _OrdersViewState extends State<OrdersView> {
           ..add(
             const HomeEvent.getSettings(),
           ),
-        child: BlocConsumer<HomeBloc, HomeState>(
-          listener: (context, state) {},
+        child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             return state.maybeWhen(
               ordersLoaded: (orders) {
