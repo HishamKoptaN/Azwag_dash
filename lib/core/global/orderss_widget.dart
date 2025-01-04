@@ -11,7 +11,6 @@ class OrdersWidget extends StatelessWidget {
     super.key,
     required this.orders,
     required this.width,
-    required ScrollController sc,
   });
   final List<Order> orders;
   final double width;

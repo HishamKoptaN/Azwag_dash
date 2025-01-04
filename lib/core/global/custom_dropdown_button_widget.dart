@@ -26,6 +26,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 400.w,
+      height: 40.h,
       child: DropdownButtonFormField<T>(
         decoration: InputDecoration(
           labelText: label,
@@ -35,7 +36,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
           ),
           suffixIcon: icon,
           labelStyle: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 13.sp,
             color: Colors.black,
           ),
           enabledBorder: const OutlineInputBorder(
@@ -47,7 +48,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
         ),
         hint: CustomText(
           text: hint,
-          fontSize: 15.sp,
+          fontSize: 13.sp,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),

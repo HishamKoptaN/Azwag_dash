@@ -39,20 +39,33 @@ class _SearchViewState extends State<SearchView> {
           child: Column(
             children: [
               SizedBox(
-                height: 300.h,
+                height: 225.h,
                 child: const SearchFieldsWidgets(),
               ),
               BlocBuilder<SearchBloc, SearchState>(
                 builder: (context, state) {
                   return state.maybeWhen(
                     loaded: (orders) {
-                      return OrdersWidget(
-                        orders: orders,
-                        width: width,
-                        sc: _sc,
-                      );
+                      if (orders.isEmpty) {
+                        return Center(
+                          child: CustomText(
+                            text: "لا توجد نتائج",
+                            color: Colors.red,
+                            fontSize: 16,
+                            fontWeight: null,
+                            maxLines: null,
+                          ),
+                        );
+                      } else {
+                        return OrdersWidget(
+                          orders: orders,
+                          width: width,
+                        );
+                      }
                     },
-                    error: (apiErrorModel) {
+                    error: (
+                      apiErrorModel,
+                    ) {
                       return Center(
                         child: CustomText(
                           text: "حدث خطأ: $apiErrorModel",
@@ -62,9 +75,6 @@ class _SearchViewState extends State<SearchView> {
                           maxLines: null,
                         ),
                       );
-                    },
-                    loading: () {
-                      return const CustomCircularProgress();
                     },
                     orElse: () {
                       return const SizedBox();

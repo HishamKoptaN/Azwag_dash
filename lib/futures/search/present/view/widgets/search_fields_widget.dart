@@ -41,8 +41,6 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
   Widget build(
     context,
   ) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (
         context,
@@ -77,6 +75,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                       ),
                       Container(
                         width: 400.w,
+                        height: 40.h,
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           border: Border.all(
@@ -232,6 +231,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                   ),
                   CustomButtonTextWidget(
                     width: 450.w,
+                    height: 40.h,
                     textColor: Colors.green,
                     buttonColor: Colors.amber,
                     widget: state.maybeWhen(
@@ -241,7 +241,7 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                       orElse: () {
                         return CustomText(
                           text: "بحث",
-                          fontSize: 30.sp,
+                          fontSize: 20.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         );

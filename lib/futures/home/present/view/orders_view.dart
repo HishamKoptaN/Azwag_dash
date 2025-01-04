@@ -60,6 +60,7 @@ class _OrdersViewState extends State<OrdersView> {
                           ),
                           child: CustomButtonTextWidget(
                             width: 700.w,
+                            height: 40.h,
                             buttonColor: const Color.fromARGB(255, 94, 150, 96),
                             textColor: Colors.green,
                             widget: CustomText(
@@ -81,10 +82,11 @@ class _OrdersViewState extends State<OrdersView> {
                           ),
                         ),
                       ),
-                      OrdersWidget(
-                        orders: orders,
-                        width: width,
-                        sc: _sc,
+                      Expanded(
+                        child: OrdersWidget(
+                          orders: orders,
+                          width: width,
+                        ),
                       ),
                     ],
                   ),

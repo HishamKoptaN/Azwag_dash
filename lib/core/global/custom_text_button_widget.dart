@@ -11,6 +11,7 @@ class CustomButtonTextWidget extends StatelessWidget {
     this.textColor = Colors.white,
     this.widget,
     this.width = double.infinity,
+    this.height,
   });
 
   final void Function()? onPressed;
@@ -19,11 +20,13 @@ class CustomButtonTextWidget extends StatelessWidget {
   final Color textColor;
   final Widget? widget;
   final double? width;
+  final double? height;
 
   @override
   Widget build(context) {
     return SizedBox(
       width: width,
+      height: height ?? 50.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonColor,
@@ -35,7 +38,7 @@ class CustomButtonTextWidget extends StatelessWidget {
         child: widget ??
             CustomText(
               text: text ?? "",
-              fontSize: 15.sp,
+              fontSize: 13.sp,
               color: textColor,
               maxLines: 1,
               fontWeight: FontWeight.bold,
