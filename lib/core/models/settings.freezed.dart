@@ -29,6 +29,10 @@ mixin _$Settings {
   @JsonKey(name: "educational_levels")
   List<EducationalLevel>? get educationalLevels =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: "mariage_types")
+  List<MariageType>? get mariageTypes => throw _privateConstructorUsedError;
+  @JsonKey(name: "genders")
+  List<Gender>? get genders => throw _privateConstructorUsedError;
 
   /// Serializes this Settings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +54,9 @@ abstract class $SettingsCopyWith<$Res> {
       @JsonKey(name: "cities") List<City>? cities,
       @JsonKey(name: "marital_status") List<MaritalStatus>? maritalStatus,
       @JsonKey(name: "educational_levels")
-      List<EducationalLevel>? educationalLevels});
+      List<EducationalLevel>? educationalLevels,
+      @JsonKey(name: "mariage_types") List<MariageType>? mariageTypes,
+      @JsonKey(name: "genders") List<Gender>? genders});
 }
 
 /// @nodoc
@@ -72,6 +78,8 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
     Object? cities = freezed,
     Object? maritalStatus = freezed,
     Object? educationalLevels = freezed,
+    Object? mariageTypes = freezed,
+    Object? genders = freezed,
   }) {
     return _then(_value.copyWith(
       countries: freezed == countries
@@ -90,6 +98,14 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
           ? _value.educationalLevels
           : educationalLevels // ignore: cast_nullable_to_non_nullable
               as List<EducationalLevel>?,
+      mariageTypes: freezed == mariageTypes
+          ? _value.mariageTypes
+          : mariageTypes // ignore: cast_nullable_to_non_nullable
+              as List<MariageType>?,
+      genders: freezed == genders
+          ? _value.genders
+          : genders // ignore: cast_nullable_to_non_nullable
+              as List<Gender>?,
     ) as $Val);
   }
 }
@@ -107,7 +123,9 @@ abstract class _$$SettingsImplCopyWith<$Res>
       @JsonKey(name: "cities") List<City>? cities,
       @JsonKey(name: "marital_status") List<MaritalStatus>? maritalStatus,
       @JsonKey(name: "educational_levels")
-      List<EducationalLevel>? educationalLevels});
+      List<EducationalLevel>? educationalLevels,
+      @JsonKey(name: "mariage_types") List<MariageType>? mariageTypes,
+      @JsonKey(name: "genders") List<Gender>? genders});
 }
 
 /// @nodoc
@@ -127,6 +145,8 @@ class __$$SettingsImplCopyWithImpl<$Res>
     Object? cities = freezed,
     Object? maritalStatus = freezed,
     Object? educationalLevels = freezed,
+    Object? mariageTypes = freezed,
+    Object? genders = freezed,
   }) {
     return _then(_$SettingsImpl(
       countries: freezed == countries
@@ -145,6 +165,14 @@ class __$$SettingsImplCopyWithImpl<$Res>
           ? _value._educationalLevels
           : educationalLevels // ignore: cast_nullable_to_non_nullable
               as List<EducationalLevel>?,
+      mariageTypes: freezed == mariageTypes
+          ? _value._mariageTypes
+          : mariageTypes // ignore: cast_nullable_to_non_nullable
+              as List<MariageType>?,
+      genders: freezed == genders
+          ? _value._genders
+          : genders // ignore: cast_nullable_to_non_nullable
+              as List<Gender>?,
     ));
   }
 }
@@ -157,11 +185,15 @@ class _$SettingsImpl implements _Settings {
       @JsonKey(name: "cities") final List<City>? cities,
       @JsonKey(name: "marital_status") final List<MaritalStatus>? maritalStatus,
       @JsonKey(name: "educational_levels")
-      final List<EducationalLevel>? educationalLevels})
+      final List<EducationalLevel>? educationalLevels,
+      @JsonKey(name: "mariage_types") final List<MariageType>? mariageTypes,
+      @JsonKey(name: "genders") final List<Gender>? genders})
       : _countries = countries,
         _cities = cities,
         _maritalStatus = maritalStatus,
-        _educationalLevels = educationalLevels;
+        _educationalLevels = educationalLevels,
+        _mariageTypes = mariageTypes,
+        _genders = genders;
 
   factory _$SettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SettingsImplFromJson(json);
@@ -211,9 +243,31 @@ class _$SettingsImpl implements _Settings {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<MariageType>? _mariageTypes;
+  @override
+  @JsonKey(name: "mariage_types")
+  List<MariageType>? get mariageTypes {
+    final value = _mariageTypes;
+    if (value == null) return null;
+    if (_mariageTypes is EqualUnmodifiableListView) return _mariageTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Gender>? _genders;
+  @override
+  @JsonKey(name: "genders")
+  List<Gender>? get genders {
+    final value = _genders;
+    if (value == null) return null;
+    if (_genders is EqualUnmodifiableListView) return _genders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'Settings(countries: $countries, cities: $cities, maritalStatus: $maritalStatus, educationalLevels: $educationalLevels)';
+    return 'Settings(countries: $countries, cities: $cities, maritalStatus: $maritalStatus, educationalLevels: $educationalLevels, mariageTypes: $mariageTypes, genders: $genders)';
   }
 
   @override
@@ -227,7 +281,10 @@ class _$SettingsImpl implements _Settings {
             const DeepCollectionEquality()
                 .equals(other._maritalStatus, _maritalStatus) &&
             const DeepCollectionEquality()
-                .equals(other._educationalLevels, _educationalLevels));
+                .equals(other._educationalLevels, _educationalLevels) &&
+            const DeepCollectionEquality()
+                .equals(other._mariageTypes, _mariageTypes) &&
+            const DeepCollectionEquality().equals(other._genders, _genders));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -237,7 +294,9 @@ class _$SettingsImpl implements _Settings {
       const DeepCollectionEquality().hash(_countries),
       const DeepCollectionEquality().hash(_cities),
       const DeepCollectionEquality().hash(_maritalStatus),
-      const DeepCollectionEquality().hash(_educationalLevels));
+      const DeepCollectionEquality().hash(_educationalLevels),
+      const DeepCollectionEquality().hash(_mariageTypes),
+      const DeepCollectionEquality().hash(_genders));
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +320,9 @@ abstract class _Settings implements Settings {
       @JsonKey(name: "cities") final List<City>? cities,
       @JsonKey(name: "marital_status") final List<MaritalStatus>? maritalStatus,
       @JsonKey(name: "educational_levels")
-      final List<EducationalLevel>? educationalLevels}) = _$SettingsImpl;
+      final List<EducationalLevel>? educationalLevels,
+      @JsonKey(name: "mariage_types") final List<MariageType>? mariageTypes,
+      @JsonKey(name: "genders") final List<Gender>? genders}) = _$SettingsImpl;
 
   factory _Settings.fromJson(Map<String, dynamic> json) =
       _$SettingsImpl.fromJson;
@@ -278,6 +339,12 @@ abstract class _Settings implements Settings {
   @override
   @JsonKey(name: "educational_levels")
   List<EducationalLevel>? get educationalLevels;
+  @override
+  @JsonKey(name: "mariage_types")
+  List<MariageType>? get mariageTypes;
+  @override
+  @JsonKey(name: "genders")
+  List<Gender>? get genders;
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.

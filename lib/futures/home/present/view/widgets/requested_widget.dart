@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/global/custom_text.dart';
-import '../../../../../core/models/order.dart';
+import '../../../../../core/models/requested_data.dart';
 
 class requestedWidget extends StatelessWidget {
   requestedWidget({
@@ -24,19 +24,19 @@ class requestedWidget extends StatelessWidget {
         'العمر الي': requestedData.maxAge,
       },
       {
-        'الحالة الاجتماعية': requestedData.maritalStatus?.status,
+        'الحالة الاجتماعية': requestedData.maritalStatus ?? "",
       },
       {
-        'منطقة الإقامة': requestedData.residenceArea?.name,
+        'منطقة الإقامة': requestedData.residenceArea ?? "",
       },
       {
-        'المستوى التعليمي': requestedData.educationalLevel?.level,
+        'المستوى التعليمي': requestedData.educationalLevel ?? "",
       },
       {
         'الوزن': requestedData.weight,
       },
       {
-        'لون البشرة': requestedData.skinColor?.name,
+        'لون البشرة': requestedData.skinColor ?? "",
       },
       {
         'ملاحظات': requestedData.notes,

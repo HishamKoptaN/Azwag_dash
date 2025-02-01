@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/global/custom_text.dart';
-import '../../../../../core/models/order.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import '../../../../../core/models/requester_data.dart';
 
 class RequesterWidget extends StatelessWidget {
   RequesterWidget({
@@ -30,10 +30,10 @@ class RequesterWidget extends StatelessWidget {
         'رقم الجوال': requesterData.mobileNumber,
       },
       {
-        'الجنس': requesterData.gender,
+        'الجنس': requesterData.gender ?? "",
       },
       {
-        'الجنسية': requesterData.nationality?.code,
+        'الجنسية': requesterData.nationality ?? "",
       },
       {
         'الوزن': requesterData.weight,
@@ -42,35 +42,35 @@ class RequesterWidget extends StatelessWidget {
         'العمر': requesterData.age,
       },
       {
-        'لون البشرة': requesterData.skinColor?.name,
+        'لون البشرة': requesterData.skinColor,
       },
       {
-        'حالة العمل': requesterData.employmentStatus?.status,
+        'حالة العمل': requesterData.employmentStatus,
       },
       {
-        'درجة الالتزام': requesterData.commitmentDegree?.degree,
+        'درجة الالتزام': requesterData.commitmentDegree,
       },
       {
-        'القبيلة': requesterData.tribe?.name,
+        'القبيلة': requesterData.tribe,
       },
       {
         'اسم القبيلة': requesterData.tribeName,
       },
       {'هل يدخن؟': requesterData.isSmoker == 1 ? 'نعم' : 'لا'},
       {
-        'الحالة الاجتماعية': requesterData.maritalStatus?.status,
+        'الحالة الاجتماعية': requesterData.maritalStatus,
       },
       {
-        'المستوى التعليمي': requesterData.educationalLevel?.level,
+        'المستوى التعليمي': requesterData.educationalLevel,
       },
       {
-        'منطقة الإقامة': requesterData.residenceArea?.name,
+        'منطقة الإقامة': requesterData.residenceArea,
       },
       {
         'منطقة الأصل': requesterData.originRegion,
       },
       {
-        'نوع الزواج': requesterData.mariageType?.type,
+        'نوع الزواج': requesterData.mariageType,
       },
       {
         'معلومات إضافية': requesterData.selfInformation,

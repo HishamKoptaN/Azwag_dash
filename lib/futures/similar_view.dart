@@ -33,10 +33,10 @@ class SimilarWidget extends StatelessWidget {
               'رقم الجوال': similar!.requesterData!.mobileNumber,
             },
             {
-              'الجنس': similar!.requesterData!.gender,
+              'الجنس': similar!.requesterData!.gender ?? "",
             },
             {
-              'الجنسية': similar!.requesterData!.nationality?.code,
+              'الجنسية': similar!.requesterData!.nationality ?? "",
             },
             {
               'الوزن': similar!.requesterData!.weight,
@@ -45,16 +45,16 @@ class SimilarWidget extends StatelessWidget {
               'العمر': similar!.requesterData!.age,
             },
             {
-              'لون البشرة': similar!.requesterData!.skinColor?.name,
+              'لون البشرة': similar!.requesterData!.skinColor,
             },
             {
-              'حالة العمل': similar!.requesterData!.employmentStatus?.status,
+              'حالة العمل': similar!.requesterData!.employmentStatus,
             },
             {
-              'درجة الالتزام': similar!.requesterData!.commitmentDegree?.degree,
+              'درجة الالتزام': similar!.requesterData!.commitmentDegree,
             },
             {
-              'القبيلة': similar!.requesterData!.tribe?.name,
+              'القبيلة': similar!.requesterData!.tribe,
             },
             {
               'اسم القبيلة': similar!.requesterData!.tribeName,
@@ -63,21 +63,19 @@ class SimilarWidget extends StatelessWidget {
               'هل يدخن؟': similar!.requesterData!.isSmoker == 1 ? 'نعم' : 'لا',
             },
             {
-              'الحالة الاجتماعية':
-                  similar!.requesterData!.maritalStatus?.status,
+              'الحالة الاجتماعية': similar!.requesterData!.maritalStatus,
             },
             {
-              'المستوى التعليمي':
-                  similar!.requesterData!.educationalLevel?.level,
+              'المستوى التعليمي': similar!.requesterData!.educationalLevel,
             },
             {
-              'منطقة الإقامة': similar!.requesterData!.residenceArea?.name,
+              'منطقة الإقامة': similar!.requesterData!.residenceArea,
             },
             {
               'منطقة الأصل': similar!.requesterData!.originRegion,
             },
             {
-              'نوع الزواج': similar!.requesterData!.mariageType?.type,
+              'نوع الزواج': similar!.requesterData!.mariageType,
             },
             {
               'معلومات إضافية': similar!.requesterData!.selfInformation,

@@ -4,14 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/global/app_layout.dart';
 import '../../../../core/global/custom_text.dart';
-import '../../../../core/global/custom_circular_progress.dart';
 import '../../../../core/global/orderss_widget.dart';
 import '../bloc/search_bloc.dart';
 import '../bloc/search_state.dart';
 import 'widgets/search_fields_widget.dart';
 
 class SearchView extends StatefulWidget {
-  const SearchView({super.key});
+  const SearchView({
+    super.key,
+  });
   @override
   State<SearchView> createState() => _SearchViewState();
 }
@@ -39,7 +40,7 @@ class _SearchViewState extends State<SearchView> {
           child: Column(
             children: [
               SizedBox(
-                height: 225.h,
+                height: 240.h,
                 child: const SearchFieldsWidgets(),
               ),
               BlocBuilder<SearchBloc, SearchState>(

@@ -20,6 +20,12 @@ _$SettingsImpl _$$SettingsImplFromJson(Map<String, dynamic> json) =>
       educationalLevels: (json['educational_levels'] as List<dynamic>?)
           ?.map((e) => EducationalLevel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      mariageTypes: (json['mariage_types'] as List<dynamic>?)
+          ?.map((e) => MariageType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      genders: (json['genders'] as List<dynamic>?)
+          ?.map((e) => Gender.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$SettingsImplToJson(_$SettingsImpl instance) =>
@@ -28,4 +34,6 @@ Map<String, dynamic> _$$SettingsImplToJson(_$SettingsImpl instance) =>
       'cities': instance.cities,
       'marital_status': instance.maritalStatus,
       'educational_levels': instance.educationalLevels,
+      'mariage_types': instance.mariageTypes,
+      'genders': instance.genders,
     };

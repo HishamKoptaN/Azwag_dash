@@ -1,4 +1,4 @@
 final List<String> genderList = [
-  'ذكر',
-  'أنثى',
+  "ذكر",
+  "أنثى",
 ];

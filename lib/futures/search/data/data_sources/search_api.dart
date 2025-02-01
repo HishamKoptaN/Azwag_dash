@@ -13,7 +13,7 @@ abstract class SearchApi {
     Dio dio, {
     String baseUrl,
   }) = _SearchApi;
-  @GET(
+  @POST(
     ApiConstants.search,
   )
   Future<List<Order>> search({

@@ -52,23 +52,23 @@ class OrdersWidget extends StatelessWidget {
                   //
                   &&
                   //
-                  index.requesterData!.maritalStatus?.id ==
-                      order.requestedData!.maritalStatus?.id
+                  index.requesterData!.maritalStatus ==
+                      order.requestedData!.maritalStatus
                   //
                   &&
                   //
-                  index.requesterData!.residenceArea?.id ==
-                      order.requestedData!.residenceArea?.id
+                  index.requesterData!.residenceArea ==
+                      order.requestedData!.residenceArea
                   //
                   &&
                   //
-                  index.requesterData!.educationalLevel?.id ==
-                      order.requestedData!.educationalLevel?.id
+                  index.requesterData!.educationalLevel ==
+                      order.requestedData!.educationalLevel
                   //
                   &&
                   //
-                  index.requesterData!.skinColor?.id ==
-                      order.requestedData!.skinColor?.id,
+                  index.requesterData!.skinColor ==
+                      order.requestedData!.skinColor,
             );
           } catch (e) {
             similar = null;

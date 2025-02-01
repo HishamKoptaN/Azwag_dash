@@ -22,7 +22,6 @@ class OrdersView extends StatefulWidget {
 }
 
 class _OrdersViewState extends State<OrdersView> {
-  final ScrollController _sc = ScrollController();
   String filterType = 'id';
   bool isSearching = false;
   @override

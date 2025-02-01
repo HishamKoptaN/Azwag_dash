@@ -1,8 +1,5 @@
-// To parse this JSON data, do
-//
-//     final searchReqBody = searchReqBodyFromJson(jsonString);
-
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'search_req_body.freezed.dart';
 part 'search_req_body.g.dart';
 
@@ -10,7 +7,7 @@ part 'search_req_body.g.dart';
 class SearchReqBody with _$SearchReqBody {
   const factory SearchReqBody({
     @JsonKey(name: "age") int? age,
-    @JsonKey(name: "gender") String? gender,
+    @JsonKey(name: "gender_id") int? genderId,
     @JsonKey(name: "residence_area_id") int? residenceAreaId,
     @JsonKey(name: "marital_status_id") int? maritalStatusId,
     @JsonKey(name: "educational_level_id") int? educationalLevelId,

@@ -30,7 +30,7 @@ class _SearchApi implements SearchApi {
     final _headers = <String, dynamic>{};
     final _data = searchReqBody;
     final _options = _setStreamType<List<Order>>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )

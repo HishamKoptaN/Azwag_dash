@@ -22,8 +22,8 @@ SearchReqBody _$SearchReqBodyFromJson(Map<String, dynamic> json) {
 mixin _$SearchReqBody {
   @JsonKey(name: "age")
   int? get age => throw _privateConstructorUsedError;
-  @JsonKey(name: "gender")
-  String? get gender => throw _privateConstructorUsedError;
+  @JsonKey(name: "gender_id")
+  int? get genderId => throw _privateConstructorUsedError;
   @JsonKey(name: "residence_area_id")
   int? get residenceAreaId => throw _privateConstructorUsedError;
   @JsonKey(name: "marital_status_id")
@@ -49,7 +49,7 @@ abstract class $SearchReqBodyCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "age") int? age,
-      @JsonKey(name: "gender") String? gender,
+      @JsonKey(name: "gender_id") int? genderId,
       @JsonKey(name: "residence_area_id") int? residenceAreaId,
       @JsonKey(name: "marital_status_id") int? maritalStatusId,
       @JsonKey(name: "educational_level_id") int? educationalLevelId});
@@ -71,7 +71,7 @@ class _$SearchReqBodyCopyWithImpl<$Res, $Val extends SearchReqBody>
   @override
   $Res call({
     Object? age = freezed,
-    Object? gender = freezed,
+    Object? genderId = freezed,
     Object? residenceAreaId = freezed,
     Object? maritalStatusId = freezed,
     Object? educationalLevelId = freezed,
@@ -81,10 +81,10 @@ class _$SearchReqBodyCopyWithImpl<$Res, $Val extends SearchReqBody>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
+      genderId: freezed == genderId
+          ? _value.genderId
+          : genderId // ignore: cast_nullable_to_non_nullable
+              as int?,
       residenceAreaId: freezed == residenceAreaId
           ? _value.residenceAreaId
           : residenceAreaId // ignore: cast_nullable_to_non_nullable
@@ -111,7 +111,7 @@ abstract class _$$SearchReqBodyImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "age") int? age,
-      @JsonKey(name: "gender") String? gender,
+      @JsonKey(name: "gender_id") int? genderId,
       @JsonKey(name: "residence_area_id") int? residenceAreaId,
       @JsonKey(name: "marital_status_id") int? maritalStatusId,
       @JsonKey(name: "educational_level_id") int? educationalLevelId});
@@ -131,7 +131,7 @@ class __$$SearchReqBodyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? age = freezed,
-    Object? gender = freezed,
+    Object? genderId = freezed,
     Object? residenceAreaId = freezed,
     Object? maritalStatusId = freezed,
     Object? educationalLevelId = freezed,
@@ -141,10 +141,10 @@ class __$$SearchReqBodyImplCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
+      genderId: freezed == genderId
+          ? _value.genderId
+          : genderId // ignore: cast_nullable_to_non_nullable
+              as int?,
       residenceAreaId: freezed == residenceAreaId
           ? _value.residenceAreaId
           : residenceAreaId // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class __$$SearchReqBodyImplCopyWithImpl<$Res>
 class _$SearchReqBodyImpl implements _SearchReqBody {
   const _$SearchReqBodyImpl(
       {@JsonKey(name: "age") this.age,
-      @JsonKey(name: "gender") this.gender,
+      @JsonKey(name: "gender_id") this.genderId,
       @JsonKey(name: "residence_area_id") this.residenceAreaId,
       @JsonKey(name: "marital_status_id") this.maritalStatusId,
       @JsonKey(name: "educational_level_id") this.educationalLevelId});
@@ -178,8 +178,8 @@ class _$SearchReqBodyImpl implements _SearchReqBody {
   @JsonKey(name: "age")
   final int? age;
   @override
-  @JsonKey(name: "gender")
-  final String? gender;
+  @JsonKey(name: "gender_id")
+  final int? genderId;
   @override
   @JsonKey(name: "residence_area_id")
   final int? residenceAreaId;
@@ -192,7 +192,7 @@ class _$SearchReqBodyImpl implements _SearchReqBody {
 
   @override
   String toString() {
-    return 'SearchReqBody(age: $age, gender: $gender, residenceAreaId: $residenceAreaId, maritalStatusId: $maritalStatusId, educationalLevelId: $educationalLevelId)';
+    return 'SearchReqBody(age: $age, genderId: $genderId, residenceAreaId: $residenceAreaId, maritalStatusId: $maritalStatusId, educationalLevelId: $educationalLevelId)';
   }
 
   @override
@@ -201,7 +201,8 @@ class _$SearchReqBodyImpl implements _SearchReqBody {
         (other.runtimeType == runtimeType &&
             other is _$SearchReqBodyImpl &&
             (identical(other.age, age) || other.age == age) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.genderId, genderId) ||
+                other.genderId == genderId) &&
             (identical(other.residenceAreaId, residenceAreaId) ||
                 other.residenceAreaId == residenceAreaId) &&
             (identical(other.maritalStatusId, maritalStatusId) ||
@@ -212,7 +213,7 @@ class _$SearchReqBodyImpl implements _SearchReqBody {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, age, gender, residenceAreaId,
+  int get hashCode => Object.hash(runtimeType, age, genderId, residenceAreaId,
       maritalStatusId, educationalLevelId);
 
   /// Create a copy of SearchReqBody
@@ -234,7 +235,7 @@ class _$SearchReqBodyImpl implements _SearchReqBody {
 abstract class _SearchReqBody implements SearchReqBody {
   const factory _SearchReqBody(
       {@JsonKey(name: "age") final int? age,
-      @JsonKey(name: "gender") final String? gender,
+      @JsonKey(name: "gender_id") final int? genderId,
       @JsonKey(name: "residence_area_id") final int? residenceAreaId,
       @JsonKey(name: "marital_status_id") final int? maritalStatusId,
       @JsonKey(name: "educational_level_id")
@@ -247,8 +248,8 @@ abstract class _SearchReqBody implements SearchReqBody {
   @JsonKey(name: "age")
   int? get age;
   @override
-  @JsonKey(name: "gender")
-  String? get gender;
+  @JsonKey(name: "gender_id")
+  int? get genderId;
   @override
   @JsonKey(name: "residence_area_id")
   int? get residenceAreaId;

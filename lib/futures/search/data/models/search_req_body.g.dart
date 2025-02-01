@@ -9,7 +9,7 @@ part of 'search_req_body.dart';
 _$SearchReqBodyImpl _$$SearchReqBodyImplFromJson(Map<String, dynamic> json) =>
     _$SearchReqBodyImpl(
       age: (json['age'] as num?)?.toInt(),
-      gender: json['gender'] as String?,
+      genderId: (json['gender_id'] as num?)?.toInt(),
       residenceAreaId: (json['residence_area_id'] as num?)?.toInt(),
       maritalStatusId: (json['marital_status_id'] as num?)?.toInt(),
       educationalLevelId: (json['educational_level_id'] as num?)?.toInt(),
@@ -18,7 +18,7 @@ _$SearchReqBodyImpl _$$SearchReqBodyImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$SearchReqBodyImplToJson(_$SearchReqBodyImpl instance) =>
     <String, dynamic>{
       'age': instance.age,
-      'gender': instance.gender,
+      'gender_id': instance.genderId,
       'residence_area_id': instance.residenceAreaId,
       'marital_status_id': instance.maritalStatusId,
       'educational_level_id': instance.educationalLevelId,

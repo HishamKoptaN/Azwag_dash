@@ -47,17 +47,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               success: (settings) async {
                 SettingsSingleton.instance.settings =
                     SettingsSingleton.instance.settings = settings;
-                // emit(
-                //   const HomeState.loaded(),
-                // );
               },
-              failure: (apiErrorModel) async {
-                // emit(
-                //   HomeState.error(
-                //     error: apiErrorModel.error!,
-                //   ),
-                // );
-              },
+              failure: (apiErrorModel) async {},
             );
           },
         );

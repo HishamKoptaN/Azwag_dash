@@ -9,11 +9,11 @@ import '../../../../../core/global/custom_dropdown_button_widget.dart';
 import '../../../../../core/global/custom_text.dart';
 import '../../../../../core/global/custom_text_button_widget.dart';
 import '../../../../../core/global/custom_text_form_field.dart';
-import '../../../../../core/global/global_lists.dart';
 import '../../../../../core/models/city.dart';
 import '../../../../../core/models/country.dart';
+import '../../../../../core/models/educational_Level.dart';
+import '../../../../../core/models/gender.dart';
 import '../../../../../core/models/marital_status.dart';
-import '../../../../../core/models/order.dart';
 import '../../../data/models/search_req_body.dart';
 import '../../bloc/search_bloc.dart';
 import '../../bloc/search_event.dart';
@@ -33,6 +33,7 @@ Country? selectedCountry =
 City? selectedCity;
 MaritalStatus? selectedMaritalStatus;
 EducationalLevel? selectedEducationLevel;
+Gender? gender;
 
 class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -61,22 +62,26 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CustomDropdownButton<String>(
+                      CustomDropdownButton<Gender>(
                         label: 'الجنس',
                         hint: 'الجنس',
-                        selectedValue: searchReqBody.gender,
+                        selectedValue: gender,
                         onChanged: (value) {
                           searchReqBody = searchReqBody.copyWith(
-                            gender: value!,
+                            genderId: value!.id!,
                           );
                         },
-                        items: genderList,
-                        itemToString: (item) => item,
+                        items: SettingsSingleton.instance.settings?.genders
+                                ?.toList() ??
+                            [],
+                        itemToString: (item) => item.name ?? '',
                       ),
                       Container(
                         width: 400.w,
                         height: 40.h,
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.black,
@@ -248,13 +253,11 @@ class _SearchFieldsWidgetsState extends State<SearchFieldsWidgets> {
                       },
                     ),
                     onPressed: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        context.read<SearchBloc>().add(
-                              SearchEvent.search(
-                                searchReqBody: searchReqBody,
-                              ),
-                            );
-                      }
+                      context.read<SearchBloc>().add(
+                            SearchEvent.search(
+                              searchReqBody: searchReqBody,
+                            ),
+                          );
                     },
                   ),
                 ],
